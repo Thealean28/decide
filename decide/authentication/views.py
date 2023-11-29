@@ -17,8 +17,8 @@ from .serializers import UserSerializer
 class GetUserView(APIView):
     def post(self, request):
         key = request.data.get('token', '')
-        tk = get_object_or_404(Token, key=key)
-        return Response(UserSerializer(tk.user, many=False).data)
+        tokenk = get_object_or_404(Token, key=key)
+        return Response(UserSerializer(tokenk.user, many=False).data)
 
 
 class LogoutView(APIView):
